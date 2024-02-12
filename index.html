@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <title>미세먼지 정보</title>
+    <style>
+        body{
+            align-items: center;
+            align-content: center;
+            align-self: center;
+            text-align: center;
+        }
+
+        #itembox{
+            display: inline-flex;
+            align-items: center;
+            align-content: center;
+            align-self: center;
+            text-align: center;
+        }
+        #pm10, #pm25{
+            margin: 30px;
+        }
+
+        #pm10title, #pm25title{
+            font-family: "Do Hyeon", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 25px;
+            margin: 5px;
+        }
+
+        #pm10grade, #pm25grade{
+            font-family: "Do Hyeon", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 20px;
+        }
+
+        #pm10value, #pm25value{
+            font-family: "Do Hyeon", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div id = itembox>
+        <div id="pm10">
+            <div id="pm10title">미세먼지</div>
+            <div id="pm10img"></div>
+            <div id="pm10grade"></div>
+            <div id="pm10value"></div>
+        </div>
+        <div id="pm25">
+            <div id="pm25title">초미세먼지</div>
+            <div id="pm25img"></div>
+            <div id="pm25grade"></div>
+            <div id="pm25value"></div>
+        </div>
+    </div>
+
+    <script>
+        var url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=송파구&ver=1.0&dataTerm=daily&pageNo=1&numOfRows=1&returnType=json&serviceKey=JSOFfYq4PwnKH%2BRgGBvPt%2BxRM%2BUdTURcPb7BGuKphZaJbwKz8lUQjxFqzZUAImQ9PakBUjjRAVLmKUSOJ3FJPw%3D%3D"
+        fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                let myData = res['response']['body']['items'][0];
+
+                if(myData.pm10Grade === '1'){
+                    document.getElementById('pm10grade').innerHTML = '좋음';
+                    document.getElementById('pm10img').innerHTML = "<img src=1.png width=120px height=120px>"
+                } else if(myData.pm10Grade === '2'){
+                    document.getElementById('pm10grade').innerHTML = '보통';
+                    document.getElementById('pm10img').innerHTML = "<img src=2.png width=120px height=120px>"
+
+                } else if(myData.pm10Grade === '3'){
+                    document.getElementById('pm10grade').innerHTML = '나쁨';
+                    document.getElementById('pm10img').innerHTML = "<img src=3.png width=120px height=120px>"
+
+                } else if(myData.pm10Grade === '4'){
+                    document.getElementById('pm10grade').innerHTML = '매우나쁨';
+                    document.getElementById('pm10img').innerHTML = "<img src=4.png width=120px height=120px>"
+
+                }
+                
+                document.getElementById('pm10value').innerHTML = '미세먼지 농도 : ' + myData.pm10Value;
+
+                if(myData.pm25Grade === '1'){
+                    document.getElementById('pm25grade').innerHTML = '좋음';
+                    document.getElementById('pm25img').innerHTML = "<img src=1.png width=120px height=120px>"
+
+                } else if(myData.pm25Grade === '2'){
+                    document.getElementById('pm25grade').innerHTML = '보통';
+                    document.getElementById('pm25img').innerHTML = "<img src=2.png width=120px height=120px>"
+
+                } else if(myData.pm25Grade === '3'){
+                    document.getElementById('pm25grade').innerHTML = '나쁨';
+                    document.getElementById('pm25img').innerHTML = "<img src=3.png width=120px height=120px>"
+
+                } else if(myData.pm25Grade === '4'){
+                    document.getElementById('pm25grade').innerHTML = '매우나쁨';
+                    document.getElementById('pm25img').innerHTML = "<img src=4.png width=120px height=120px>"
+
+                }
+                
+                document.getElementById('pm25value').innerHTML = '초미세먼지 농도 : ' + myData.pm25Value;
+            }
+            )
+    </script>
+</body>
+</html>
