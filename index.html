@@ -42,7 +42,7 @@
             font-size: 20px;
         }
 
-        #pm10value, #pm25value{
+        #pm10value, #pm25value, #time_value{
             font-family: "Do Hyeon", sans-serif;
             font-weight: 400;
             font-style: normal;
@@ -64,6 +64,7 @@
             <div id="pm25value"></div>
         </div>
     </div>
+    <div id="time_value"></div>
 
     <script>
         var url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=송파구&ver=1.0&dataTerm=daily&pageNo=1&numOfRows=1&returnType=json&serviceKey=JSOFfYq4PwnKH+RgGBvPt+xRM+UdTURcPb7BGuKphZaJbwKz8lUQjxFqzZUAImQ9PakBUjjRAVLmKUSOJ3FJPw=="
@@ -110,6 +111,8 @@
                 }
                 
                 document.getElementById('pm25value').innerHTML = '초미세먼지 농도 : ' + myData.pm25Value;
+
+                document.getElementById('time_value').innerHTML = myData.dataTime;
             }
             )
     </script>
