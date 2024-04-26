@@ -75,42 +75,42 @@
 
                 if(myData.pm10Grade1h === '1'){
                     document.getElementById('pm10grade').innerHTML = '좋음';
-                    document.getElementById('pm10img').innerHTML = "<img src=1.png width=120px height=120px>"
+                    document.getElementById('pm10img').innerHTML = "<img src=https://i.ibb.co/MZtbDdD/1.png width=120px height=120px>"
                 } else if(myData.pm10Grade1h === '2'){
                     document.getElementById('pm10grade').innerHTML = '보통';
-                    document.getElementById('pm10img').innerHTML = "<img src=2.png width=120px height=120px>"
+                    document.getElementById('pm10img').innerHTML = "<img src=https://i.ibb.co/gV11Qjx/2.png width=120px height=120px>"
 
                 } else if(myData.pm10Grade1h === '3'){
                     document.getElementById('pm10grade').innerHTML = '나쁨';
-                    document.getElementById('pm10img').innerHTML = "<img src=3.png width=120px height=120px>"
+                    document.getElementById('pm10img').innerHTML = "<img src=https://i.ibb.co/R23zg6k/3.png width=120px height=120px>"
 
                 } else if(myData.pm10Grade1h === '4'){
                     document.getElementById('pm10grade').innerHTML = '매우나쁨';
-                    document.getElementById('pm10img').innerHTML = "<img src=4.png width=120px height=120px>"
+                    document.getElementById('pm10img').innerHTML = "<img src=https://i.ibb.co/k1MKqz5/4.png width=120px height=120px>"
 
                 }
                 
-                document.getElementById('pm10value').innerHTML = '미세먼지 농도 : ' + myData.pm10Value;
+                document.getElementById('pm10value').innerHTML = '미세먼지 농도 : ' + myData.pm10Value + '㎍/㎥';
 
                 if(myData.pm25Grade1h === '1'){
                     document.getElementById('pm25grade').innerHTML = '좋음';
-                    document.getElementById('pm25img').innerHTML = "<img src=1.png width=120px height=120px>"
+                    document.getElementById('pm25img').innerHTML = "<img src=https://i.ibb.co/MZtbDdD/1.png width=120px height=120px>"
 
                 } else if(myData.pm25Grade1h === '2'){
                     document.getElementById('pm25grade').innerHTML = '보통';
-                    document.getElementById('pm25img').innerHTML = "<img src=2.png width=120px height=120px>"
+                    document.getElementById('pm25img').innerHTML = "<img src=https://i.ibb.co/gV11Qjx/2.png width=120px height=120px>"
 
                 } else if(myData.pm25Grade1h === '3'){
                     document.getElementById('pm25grade').innerHTML = '나쁨';
-                    document.getElementById('pm25img').innerHTML = "<img src=3.png width=120px height=120px>"
+                    document.getElementById('pm25img').innerHTML = "<img src=https://i.ibb.co/R23zg6k/3.png width=120px height=120px>"
 
                 } else if(myData.pm25Grade1h === '4'){
                     document.getElementById('pm25grade').innerHTML = '매우나쁨';
-                    document.getElementById('pm25img').innerHTML = "<img src=4.png width=120px height=120px>"
+                    document.getElementById('pm25img').innerHTML = "<img src=https://i.ibb.co/k1MKqz5/4.png width=120px height=120px>"
 
                 }
                 
-                document.getElementById('pm25value').innerHTML = '초미세먼지 농도 : ' + myData.pm25Value;
+                document.getElementById('pm25value').innerHTML = '초미세먼지 농도 : ' + myData.pm25Value + '㎍/㎥';
 
                 document.getElementById('time_value').innerHTML = myData.dataTime;
             }
